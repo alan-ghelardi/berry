@@ -1,8 +1,8 @@
-(ns berry.formatter.camel-case
+(ns berry.formatter.camelize
   (:require [berry.formatter.extract-name :refer :all]
             [clojure.string :as string]))
 
-(defn camel-case
+(defn camelize
   [some-identifier]
   (let [name (extract-name some-identifier)
         parts (string/split name #"-+|_+")]

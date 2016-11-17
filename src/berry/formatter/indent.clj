@@ -1,4 +1,4 @@
-(ns berry.formatting)
+(ns berry.formatter.indent)
 
 (defn- indent-with
 [character width]

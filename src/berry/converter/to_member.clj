@@ -23,4 +23,4 @@
 (defn- transform-value
   [value {to-json :to-json
           :as options}]
-  (to-json value))
+  (to-json value options))

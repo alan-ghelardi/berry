@@ -1,4 +1,5 @@
-(ns berry.converter.to-primitives)
+(ns berry.converter.to-primitives
+  (:require [berry.formatter.enclose-in-double-quotes :refer [enclose-in-double-quotes]]))
 
 (defn to-boolean
   [value options]
@@ -14,4 +15,4 @@
 
 (defn to-string
   [value options]
-  (str "\"" value "\""))
+  (enclose-in-double-quotes value))

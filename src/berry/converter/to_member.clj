@@ -1,5 +1,6 @@
 (ns berry.converter.to-member
-  (:require [berry.formatter.indent :refer [indent]]
+  (:require [berry.formatter.enclose-in-double-quotes :refer [enclose-in-double-quotes]] 
+            [berry.formatter.indent :refer [indent]]
             [berry.formatter.wrap :refer [wrap]]))
 
 (declare transform-name transform-value)
@@ -17,7 +18,7 @@
   [name {transform :naming-style
          :as options}]
   (indent 
-    (transform name)
+    (enclose-in-double-quotes (transform name))
     options))
 
 (defn- transform-value

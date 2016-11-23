@@ -4,10 +4,10 @@
 
 (deftest camel-case
   
-  (testing "a word with underlines"
+  (testing "A word with underlines."
            
            (is (= "firstName" (camelize "first_name"))))
   
-  (testing "a word with dashes"
+  (testing "A word with dashes."
            
            (is (= "anotherAnyWord" (camelize "another-any-word")))))

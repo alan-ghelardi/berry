@@ -6,4 +6,14 @@
   
   (testing "unicode-code-point"
            
-           (is 123 (=  (unicode-code-point "{")))))
+           (testing "With a string as parameter."
+                    
+                    (is 123 (=  (unicode-code-point "{")))))
+  
+  (testing "With an integer as parameter"
+           
+           (is (= 123 (unicode-code-point 123))))
+  
+  (testing "equal?"
+           
+           (is (= true (equal? 0x7B  "{")))))

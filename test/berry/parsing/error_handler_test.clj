@@ -4,7 +4,12 @@
 
 (deftest error-handler-test
   
-  (testing "Unexpected token error."
+  (testing "unexpected-token"
            
            (is (thrown-with-msg? java.text.ParseException #"Unexpected token . at line 10, column 4."
-               (unexpected-token "." {:line 10 :column 4 :offset 30})))))
+                                 (unexpected-token "." {:current-line 10 :current-column 4 :offset 30}))))
+  
+  (testing "unexpected-end-of-input")
+  
+  (is (thrown-with-msg? java.text.ParseException #"Unexpected end of input at line 20, column 5."
+                       (unexpected-end-of-input {:current-line 20 :current-column 5 :offset 50}))))

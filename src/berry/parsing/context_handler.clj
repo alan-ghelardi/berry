@@ -7,18 +7,14 @@
             :current-column 1
             :offset 0})
 
-(defn ++
-  [{current-column :current-column
-    offset :offset
-    :as context}]
-  (merge context {
-                  :current-column (inc current-column)
-                  :offset (inc offset)}))
+(defn- apply-to 
+  [transform {current-column :current-column
+              offset :offset
+              :as context}]
+  (assoc context 
+         :current-column (transform current-column)
+         :offset (transform offset)))
 
-(defn --
-  [{current-column :current-column
-    offset :offset
-    :as context}]
-  (merge context {
-                  :current-column (dec current-column)
-                  :offset (dec offset)}))
+(def ++ (partial apply-to inc))
+
+(def -- (partial apply-to dec))

@@ -1,8 +1,8 @@
-(ns berry.parsing.scan-literal
-  (:require [berry.parsing.context-handler :refer [++ --]]
-            [berry.parsing.character :refer :all]
-            [berry.parsing.error-handler :refer :all]
-            [berry.parsing.token :as token]))
+(ns berry.lexical-analysis.scan-literal
+  (:require [berry.lexical-analysis.context-handler :refer [++ --]]
+            [berry.lexical-analysis.character :refer :all]
+            [berry.lexical-analysis.error-handler :refer :all]
+            [berry.lexical-analysis.token :as token]))
 
 (declare scan)
 

@@ -1,9 +1,9 @@
-(ns berry.parsing.scan-literal-test
-  (:require [berry.parsing.context-handler :as context] 
-            [berry.parsing.scan-literal :refer :all]
-            berry.parsing.token
+(ns berry.lexical-analysis.scan-literal-test
+  (:require [berry.lexical-analysis.context-handler :as context] 
+            [berry.lexical-analysis.scan-literal :refer :all]
+            berry.lexical-analysis.token
             [clojure.test :refer :all])
-  (:import [berry.parsing.token Token Location]))
+  (:import [berry.lexical_analysis.token Token Location]))
 
 (deftest scan-literal-test
   

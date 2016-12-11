@@ -1,5 +1,5 @@
-(ns berry.parsing.error-handler-test
-  (:require [berry.parsing.error-handler :refer :all]
+(ns berry.lexical-analysis.error-handler-test
+  (:require [berry.lexical-analysis.error-handler :refer :all]
             [clojure.test :refer :all]))
 
 (deftest error-handler-test

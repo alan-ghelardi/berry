@@ -1,4 +1,4 @@
-(ns berry.parsing.context-handler)
+(ns berry.lexical-analysis.context-handler)
 
 (def begin {
             :start-line 1

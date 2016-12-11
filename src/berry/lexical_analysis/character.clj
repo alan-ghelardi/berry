@@ -1,4 +1,4 @@
-(ns berry.parsing.character)
+(ns berry.lexical-analysis.character)
 
 (def true-code-points '(0x74 0x72 0x75 0x65))
 

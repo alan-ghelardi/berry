@@ -1,5 +1,5 @@
-(ns berry.parsing.context-handler-test
-  (:require [berry.parsing.context-handler :refer :all]
+(ns berry.lexical-analysis.context-handler-test
+  (:require [berry.lexical-analysis.context-handler :refer :all]
             [clojure.test :refer :all]))
 
 (deftest context-handler-test

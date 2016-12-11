@@ -1,4 +1,4 @@
-(ns berry.parsing.error-handler)
+(ns berry.lexical-analysis.error-handler)
 
 (defn- raise-error
   [message {line :current-line

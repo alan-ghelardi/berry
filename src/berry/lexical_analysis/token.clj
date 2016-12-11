@@ -1,4 +1,4 @@
-(ns berry.parsing.token
+(ns berry.lexical-analysis.token
   (:require [clojure.string :refer [join]]))
 
 (defrecord Token

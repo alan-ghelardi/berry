@@ -1,5 +1,5 @@
-(ns berry.parsing.character-test
-  (:require [berry.parsing.character :refer :all]
+(ns berry.lexical-analysis.character-test
+  (:require [berry.lexical-analysis.character :refer :all]
             [clojure.test :refer :all]))
 
 (deftest character-test

@@ -31,4 +31,18 @@
   
   (testing "equal?"
            
-           (is (= true (equal? 0x7B  "{")))))
+           (is (= true (equal? 0x7B  "{"))))
+  
+  (testing "structural?"
+           
+           (doseq [token ["{" "}" "[" "]" ":" ","]]
+             
+             (testing (str "With the token " token)
+                      
+                      (is (true? (structural? token)))))
+           
+           (testing "With invalid tokens"
+                    
+                    (doseq [token ["(" ")" "^"]]
+                      
+                      (is (nil? (structural? token)))))))

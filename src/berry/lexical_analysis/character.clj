@@ -15,3 +15,14 @@
 (defn equal?
   [a-char other-char]
   (= (unicode-code-point a-char) (unicode-code-point other-char)))
+
+(defn structural?
+  [char]
+  (let [structural-code-points '(0x7B ;; left curly bracket 
+                                  0x7D ;; right curly bracket 
+                                  0x5B ;; left square bracket
+                                  0x5D ;; right square bracket  
+                                  0x3A ;; colon 
+                                  0x2C)] ;; comma
+    (some #(equal? % char)
+          structural-code-points)))

@@ -9,15 +9,15 @@
 
 (defn- create-token
   [ type value {
-                    start-line :start-line
-                    start-column :start-column
-                    end-line :current-line
-                    end-column :current-column}]
+                start-line :start-line
+                start-column :start-column
+                end-line :current-line
+                end-column :current-column}]
   (map->Token {:type type
                :value (join value)
                :start (Location. start-line start-column)
                :end (Location. end-line end-column)}))
 
-(defn literal
-  [value attributes]
-  (create-token "literal" value attributes))
+(def literal (partial create-token "literal"))
+
+(def structural (partial create-token "structural"))

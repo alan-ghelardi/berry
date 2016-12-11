@@ -4,13 +4,28 @@
 
 (deftest character-test
   
+  (testing "true-code-points"
+           
+           (is (= '(0x74 0x72 0x75 0x65)
+                  true-code-points)))
+  
+  (testing "false-code-points"
+           
+           (is (= '(0x66 0x61 0x6c 0x73 0x65)
+                  false-code-points)))
+  
+  (testing "null-code-points"
+           
+           (is (= '(0x6E 0x75 0x6C 0x6C)
+                  null-code-points)))
+  
   (testing "unicode-code-point"
            
-           (testing "With a string as parameter."
+           (testing "When a string is passed as parameter."
                     
-                    (is 123 (=  (unicode-code-point "{")))))
+                    (is 123 (= (unicode-code-point "{")))))
   
-  (testing "With an integer as parameter"
+  (testing "When an integer is passed as parameter."
            
            (is (= 123 (unicode-code-point 123))))
   

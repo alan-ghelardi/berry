@@ -4,39 +4,39 @@
             [berry.parsing.error-handler :refer :all]
             [berry.parsing.token :as token]))
 
-(declare scan-by-example)
+(declare scan)
 
 (defmulti scan-literal
   (fn [source context]
     (unicode-code-point (first source))))
 
-(defmethod scan-literal 0x74
+(defmethod scan-literal (first true-code-points) 
   [source context]
-  (scan-by-example source '(0x74 0x72 0x75 0x65) context))
+  (scan source true-code-points context))
 
-(defmethod scan-literal 0x66
+(defmethod scan-literal (first false-code-points) 
   [source context]
-  (scan-by-example source '(0x66 0x61 0x6c 0x73 0x65) context))
+  (scan source false-code-points context))
 
-(defmethod scan-literal 0x6E 
+(defmethod scan-literal (first null-code-points) 
   [source context]
-  (scan-by-example source '(0x6E 0x75 0x6C 0x6C) context))
+  (scan source null-code-points context))
 
-(defn- scan-by-example
-  ([source example context]
-    (scan-by-example source example [] context))
-  ([source example buffer context]
+(defn- scan
+  ([source valid-tokens context]
+    (scan source valid-tokens [] context))
+  ([source valid-tokens buffer context]
     (cond
-      (and (empty? source) (not (empty? example)))
+      (and (empty? source) (not (empty? valid-tokens)))
       (unexpected-end-of-input (-- context))
-      (empty? example)
+      (empty? valid-tokens)
       (token/literal buffer (-- context))
       :else
-      (let [expected-char (first example)
+      (let [expected-char (first valid-tokens)
             actual-char (first source)]
         (if (equal? expected-char actual-char)
           (recur (rest source)
-                 (rest example)
+                 (rest valid-tokens)
                  (conj buffer actual-char)
                  (++ context))
           (unexpected-token actual-char context))))))

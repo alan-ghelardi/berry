@@ -23,7 +23,7 @@
            
            (testing "When a string is passed as parameter."
                     
-                    (is 123 (= (unicode-code-point "{")))))
+                    (is (= 123 (unicode-code-point "{")))))
   
   (testing "When an integer is passed as parameter."
            
@@ -31,7 +31,7 @@
   
   (testing "equal?"
            
-           (is (= true (equal? 0x7B  "{"))))
+           (is (true? (equal? 0x7B  "{"))))
   
   (testing "structural?"
            
@@ -45,4 +45,62 @@
                     
                     (doseq [token ["(" ")" "^"]]
                       
-                      (is (nil? (structural? token)))))))
+                      (is (nil? (structural? token))))))
+  
+  (testing "digit"
+           
+           (testing "With digits from 0 to 9."
+                    
+                    (doseq [token ["0" "1" "2" "3" "4" "5" "6" "7" "8" "9"]]
+                      
+                      (is (true? (digit? token)))))
+           
+           (testing "With invalid tokens."
+                    
+                    (doseq [token ["a" "!" "," ")"]]
+                      
+                      (is (false? (digit? token))))))
+  
+  (testing "dot?"
+           
+           (testing "The character ."
+                    
+                    (is (true? (dot? "."))))
+           
+           (testing "An invalid character."
+                    
+                    (is (false? (dot? ";"))))) 
+  
+  (testing "plus-sign?"
+           
+           (testing "The character +."
+                    
+                    (is (true? (plus-sign? "+"))))
+           
+           (testing "An invalid character."
+                    
+                    (is (false? (plus-sign? "!")))))
+  
+  (testing "minus-sign?" 
+           
+           (testing "The character -."           
+                    
+                    (is (true? (minus-sign? "-"))))
+           
+           (testing "An invalid chracter."           
+                    
+                    (is (true? (minus-sign? "-")))))
+  
+  (testing "exponent-sign?"
+           
+           (testing "The character e"
+                    
+                    (is (true? (exponent-sign? "e"))))
+           
+           (testing "The character E"
+                    
+                    (is (true? (exponent-sign? "E"))))
+           
+           (testing "An invalid character."
+                    
+                    (is (false? (exponent-sign? "a"))))))

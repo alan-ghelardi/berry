@@ -20,4 +20,6 @@
 
 (def literal (partial create-token "literal"))
 
+(def number (partial create-token "number"))
+
 (def structural (partial create-token "structural"))

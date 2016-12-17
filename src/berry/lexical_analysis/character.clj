@@ -26,3 +26,20 @@
                                   0x2C)] ;; comma
     (some #(equal? % char)
           structural-code-points)))
+
+(defn digit?
+  [char]
+  (let [code-point (unicode-code-point char)]
+    (and (>= code-point 0x30)
+         (<= code-point 0x39))))
+
+(def dot? (partial equal? 0x2E))
+
+(def plus-sign? (partial equal? 0x2B))
+
+(def minus-sign? (partial equal? 0x2D))
+
+(defn exponent-sign? 
+  [char]
+  (or (equal? char 0x65)
+      (equal? char 0x45)))

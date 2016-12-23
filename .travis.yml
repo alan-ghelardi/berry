@@ -1,3 +1,5 @@
 language: clojure
 lein: 2.7.1
 script: lein test
+after_script:
+  - bash -ex test/coveralls.sh

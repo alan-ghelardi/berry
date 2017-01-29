@@ -43,3 +43,8 @@
   [char]
   (or (equal? char 0x65)
       (equal? char 0x45)))
+
+(defn quotation-mark?
+  [char]
+  (= (unicode-code-point char)
+     0x0022))

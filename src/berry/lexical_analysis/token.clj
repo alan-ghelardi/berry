@@ -23,3 +23,5 @@
 (def number (partial create-token "number"))
 
 (def structural (partial create-token "structural"))
+
+(def string (partial create-token "string"))

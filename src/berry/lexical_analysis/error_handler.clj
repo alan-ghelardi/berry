@@ -14,3 +14,7 @@
 (defn unexpected-end-of-input
   [context]
   (raise-error "Unexpected end of input" context))
+
+(defn unclosed-string
+  [context]
+  (raise-error "Unclosed string starting" context))

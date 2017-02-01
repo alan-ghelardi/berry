@@ -16,5 +16,5 @@
 
   (testing "enclosed-string"
 
-    (is (thrown-with-msg? java.text.ParseException #"Enclosed string starting at line 2, column 10"
+    (is (thrown-with-msg? java.text.ParseException #"Unclosed string starting at line 2, column 10."
                           (unclosed-string {:current-line 2 :current-column 10 :offset 50})))))
